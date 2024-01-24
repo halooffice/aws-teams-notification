@@ -1,0 +1,20 @@
+{
+    "Version": "2008-10-17",
+    "Id": "__default_policy_ID",
+    "Statement": [
+        {
+            "Sid": "__default_statement_ID",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "SNS:Publish",
+            "Resource": "${CURRNET_TOPIC_ARN}",
+            "Condition": {
+                "ArnEquals": {
+                    "aws:SourceArn": "${S3_BUCKET_ARN}"
+                }
+            }
+        }
+    ]
+}
